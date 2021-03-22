@@ -6,7 +6,7 @@
 * 若人不在，則狼吃羊
 * 若人不在，則羊吃菜
 * ![過河問題](https://github.com/cycyucheng1010/ai109b/blob/main/Homework/%E9%81%8E%E6%B2%B3%E5%95%8F%E9%A1%8C.png)
-### 程式碼:
+### [程式碼](https://github.com/cycyucheng1010/ai109b/blob/main/Homework/HW2-3.py):
 ```
 import copy  # 使用深複製 不需pip
 state = [0, 0, 0, 0]  # 人、狼、羊、甘藍菜
