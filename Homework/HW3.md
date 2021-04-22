@@ -1,4 +1,4 @@
-# Truthtable
+# HW3: Truthtable
 ## 程式碼
 ```
 def truthTable(n): # 列出 n 變數的所有可能 0,1 排列
