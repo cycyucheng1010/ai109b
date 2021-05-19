@@ -1,5 +1,5 @@
 # 課程:人工智慧 -- 習題專案
-
+## 資料
 欄位 | 內容
 -----|--------
 學期 | 109 學年度下學期
@@ -9,8 +9,8 @@
 學校科系 | [金門大學資訊工程系](https://www.nqu.edu.tw/educsie/index.php)
 課程內容 | https://gitlab.com/ccc109/ai
 
-# Note
-## Table of Contents
+## Note
+### Table of Contents
 
 週次 | 內容
 ---- | ----
