@@ -24,3 +24,4 @@
 [20210422第九週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210422%E7%AC%AC%E4%B9%9D%E9%80%B1%E7%AD%86%E8%A8%98.md) | 神經網路介紹 <br> 從微分到梯度下降
 [20210429第十週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210429%E7%AC%AC%E5%8D%81%E9%80%B1%E7%AD%86%E8%A8%98.md) | 笛摩根定律 <br> 謂詞邏輯 <br> 一階邏輯 <br> 二階邏輯 <br> prolog初探
 [20210506第十一週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210506%E7%AC%AC%E5%8D%81%E4%B8%80%E9%80%B1%E7%AD%86%E8%A8%98.md) | 科學計算常用函式庫以及使用
+[20210513第十二週筆記](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210513%E7%AC%AC%E5%8D%81%E4%BA%8C%E9%80%B1%E7%AD%86%E8%A8%98.md) | 自然語言<br> 語言的處理<br> 語言的層次<br> Chomsky Hierarchy<br> 語句結構<br> BNF 與生成語法
