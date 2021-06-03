@@ -52,12 +52,12 @@
 ![image](https://user-images.githubusercontent.com/62127656/120697598-84859f00-c4e0-11eb-9c1a-884e387dea54.png)
 ![image](https://user-images.githubusercontent.com/62127656/120697651-936c5180-c4e0-11eb-91e2-2c2b6dec188b.png)
 ![image](https://user-images.githubusercontent.com/62127656/120697684-9bc48c80-c4e0-11eb-9807-8eec19380edb.png)
->(圖九、圖十、圖十一)使用外部照片進行測試
+>(圖九、圖十、圖十一) 使用外部照片進行測試
 
 ## 結語
 * 利用了4張照片進行測試，而電腦與我們主觀的判斷一致說明測試是成功的。(可參考圖十一之結果)
 * 測試後發現RMSPROP的accuracy比ADAM來的好(accuracy 99%:97%)
  
 ![image](https://user-images.githubusercontent.com/62127656/120698902-438e8a00-c4e2-11eb-8514-73f3bf048c97.png)
->(圖十二)
+>(圖十二) RMSPROP與ADAM之間的比較
 * 未來可以與硬體結合並優化程式，成為一個有趣的實驗，Ex: 在樹梅派上裝上相機進行人臉判斷。
