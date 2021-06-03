@@ -27,3 +27,4 @@
 [20210513第十二週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210513%E7%AC%AC%E5%8D%81%E4%BA%8C%E9%80%B1%E7%AD%86%E8%A8%98.md) | 自然語言<br> 語言的處理<br> 語言的層次<br> Chomsky Hierarchy<br> 語句結構<br> BNF 與生成語法
 [20210520第十三週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210520%E7%AC%AC%E5%8D%81%E4%B8%89%E9%80%B1%E7%AD%86%E8%A8%98.md) | Hacker's guide to Neural Networks <br> pytorch初探
 [20210527第十四週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210527%E7%AC%AC%E5%8D%81%E5%9B%9B%E9%80%B1%E7%AD%86%E8%A8%98.md) | 人工智慧的方法<br> 常見神經元的開關函數<br>深度學習的神經網路 <br>1. CNN <br> 2. RNN、LSTM <br> 3. GAN <br> 4. 強化學習機制
+[20210605第十五週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210603%E7%AC%AC%E5%8D%81%E4%BA%94%E9%80%B1%E7%AD%86%E8%A8%98.md) | Colab <br> RNN <br> LSTM <br> One-hot Enconding
