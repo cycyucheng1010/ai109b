@@ -17,10 +17,10 @@
 * 有3690張smiling照片
 
 ![image](https://user-images.githubusercontent.com/62127656/120694521-e6440a00-c4dc-11eb-9027-3a0dda5258cc.png)
->smiling
+>(圖一) smiling
 
 ![image](https://user-images.githubusercontent.com/62127656/120694571-f825ad00-c4dc-11eb-9893-598e3217cafe.png)
->unsmiling
+>(圖二) unsmiling
 ### 使用環境
 * Colab ----> google的開發環境，可免費使用內建其GPU長達8hr/day
 * tensorflow ----> 人工智慧套件 
@@ -32,32 +32,32 @@
 
 ### [程式碼](https://github.com/cycyucheng1010/ai109b/blob/main/Homework/%E6%9C%9F%E6%9C%AB%E4%BD%9C%E6%A5%AD.ipynb)
 ![image](https://user-images.githubusercontent.com/62127656/120694975-623e5200-c4dd-11eb-9469-5ad113a1cc19.png)
->抓取資料集
+>(圖三) 抓取資料集
 
 ![image](https://user-images.githubusercontent.com/62127656/120695141-9fa2df80-c4dd-11eb-9436-12c2a9a2df3e.png)
->進行資料預處理，讓數據等量
+>(圖四) 進行資料預處理，讓數據等量
 
 ![image](https://user-images.githubusercontent.com/62127656/120696246-e80ecd00-c4de-11eb-8283-73a1f7cb48f5.png)
->將圖片統一格式轉換成矩陣，每500回報一次
+>(圖五) 將圖片統一格式轉換成矩陣，每500回報一次
 
 ![image](https://user-images.githubusercontent.com/62127656/120696499-36bc6700-c4df-11eb-919a-37f33129afcb.png)
->取80%進行學習20測試，結束後進行捲積及池化
+>(圖六) 取80%進行學習20測試，結束後進行捲積及池化
 
 ![image](https://user-images.githubusercontent.com/62127656/120697008-c6621580-c4df-11eb-9b51-c85bf51d0fa9.png)
->讓模型去訓練，這邊的optmizer先後測試了rmsprop以及Adam
+>(圖七) 讓模型去訓練，這邊的optmizer先後測試了rmsprop以及Adam
 
 ![image](https://user-images.githubusercontent.com/62127656/120697496-5e5fff00-c4e0-11eb-948d-e491140d7900.png)
->模型儲存以及評估
+>(圖八) 模型儲存以及評估
 
 ![image](https://user-images.githubusercontent.com/62127656/120697598-84859f00-c4e0-11eb-9c1a-884e387dea54.png)
 ![image](https://user-images.githubusercontent.com/62127656/120697651-936c5180-c4e0-11eb-91e2-2c2b6dec188b.png)
 ![image](https://user-images.githubusercontent.com/62127656/120697684-9bc48c80-c4e0-11eb-9807-8eec19380edb.png)
->使用外部照片進行測試
+>(圖九、圖十、圖十一)使用外部照片進行測試
 
 ## 結語
-* 利用了4張照片進行測試，而電腦與我們主觀的判斷一致說明測試是成功的。
+* 利用了4張照片進行測試，而電腦與我們主觀的判斷一致說明測試是成功的。(可參考圖十一之結果)
 * 測試後發現RMSPROP的accuracy比ADAM來的好(accuracy 99%:97%)
  
 ![image](https://user-images.githubusercontent.com/62127656/120698902-438e8a00-c4e2-11eb-8514-73f3bf048c97.png)
-
+>(圖十二)
 * 未來可以與硬體結合並優化程式，成為一個有趣的實驗，Ex: 在樹梅派上裝上相機進行人臉判斷。
