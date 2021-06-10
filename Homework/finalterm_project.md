@@ -44,7 +44,7 @@
 >(圖六) 取80%進行學習20測試，結束後進行捲積及池化
 
 ![image](https://user-images.githubusercontent.com/62127656/120697008-c6621580-c4df-11eb-9b51-c85bf51d0fa9.png)
->(圖七) 讓模型去訓練，這邊的optmizer先後測試了rmsprop以及Adam
+>(圖七) Epoch選擇30次，讓模型去訓練，這邊的optmizer先後測試了rmsprop以及Adam
 
 ![image](https://user-images.githubusercontent.com/62127656/120697496-5e5fff00-c4e0-11eb-948d-e491140d7900.png)
 >(圖八) 模型儲存以及評估
@@ -56,7 +56,7 @@
 
 ## 結語
 * 利用了4張照片進行測試，而電腦與我們主觀的判斷一致說明測試是成功的。(可參考圖十一之結果)
-* 測試後發現RMSPROP的accuracy比ADAM來的好(accuracy 99%:97%)
+* 測試後發現RMSPROP的accuracy比ADAM來的好(accuracy 99% V.S.97%)
  
 ![image](https://user-images.githubusercontent.com/62127656/120698902-438e8a00-c4e2-11eb-8514-73f3bf048c97.png)
 >(圖十二) RMSPROP與ADAM之間的比較
