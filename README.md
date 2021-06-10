@@ -28,3 +28,4 @@
 [20210520第十三週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210520%E7%AC%AC%E5%8D%81%E4%B8%89%E9%80%B1%E7%AD%86%E8%A8%98.md) | Hacker's guide to Neural Networks <br> pytorch初探
 [20210527第十四週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210527%E7%AC%AC%E5%8D%81%E5%9B%9B%E9%80%B1%E7%AD%86%E8%A8%98.md) | 人工智慧的方法<br> 常見神經元的開關函數<br>深度學習的神經網路 <br>1. CNN <br> 2. RNN、LSTM <br> 3. GAN <br> 4. 強化學習機制
 [20210605第十五週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210603%E7%AC%AC%E5%8D%81%E4%BA%94%E9%80%B1%E7%AD%86%E8%A8%98.md) | Colab <br> RNN <br> LSTM <br> One-hot Enconding
+[20210610第十六週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210610%E7%AC%AC%E5%8D%81%E5%85%AD%E9%80%B1%E7%AD%86%E8%A8%98.md) | 機器學習 <br> 蒙地卡羅方法 <br> 馬可夫鏈  <br> 吉布斯採樣  <br> 隱藏式馬可夫模型  <br> 維特比演算法 <br> 最大期望演算法  <br> K-近鄰演算法 <br> 決策樹 <br> 隨機森林 <br> SVM 
