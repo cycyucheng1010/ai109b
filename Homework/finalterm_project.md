@@ -63,3 +63,257 @@
 ![image](https://user-images.githubusercontent.com/62127656/120698902-438e8a00-c4e2-11eb-8514-73f3bf048c97.png)
 >(圖十二) RMSPROP與ADAM之間的比較
 * 未來可以與硬體結合並優化程式，成為一個有趣的實驗，Ex: 在樹梅派上裝上相機進行人臉的微笑判斷。
+
+## 完整程式碼
+```
+from google.colab import drive
+drive.mount('/content/drive')
+
+#4621 從github網站下載數據集
+!git clone https://github.com/hromi/SMILEsmileD.git
+
+#4622 安裝資料夾 樹狀結構工具
+!apt-get install tree
+
+
+#4623 顯示資料夾 樹狀結構
+!tree SMILEsmileD -L 3
+
+#4624 沒有微笑(負向)圖片數量 
+%%time
+from imutils import paths #路徑檔案管理
+neg_images = sorted(list(paths.list_images('SMILEsmileD/SMILEs/negatives/negatives7'))) 
+print(len(neg_images))
+
+#4625 微笑(正向)圖片數量 
+pos_images = sorted(list(paths.list_images('SMILEsmileD/SMILEs/positives/positives7'))) 
+print(len(pos_images))
+
+#4626 兩個分類檔案 取相同數量 
+neg_images = neg_images[:3690]
+print(len(neg_images))
+print(len(pos_images))
+
+#4627 製作數據集 [圖片路徑,label] 微笑:1 沒微笑:0
+dataset = [(path, 0) for path in neg_images] + [(path, 1) for path in pos_images]
+print(dataset[-2])
+len(dataset)
+
+#4628
+from IPython.display import Image
+Image(dataset[8][0],width=200)
+
+Image(dataset[26][0],width=200)
+
+#4629
+%tensorflow_version 1.x
+%matplotlib inline
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import numpy as np
+import cv2
+from skimage.io import imread #skimage python影像處理模組
+from skimage.measure import block_reduce
+
+from keras.models import Sequential
+from keras.layers.core import Dense, Dropout, Activation
+from keras import models
+from keras import layers
+from sklearn.model_selection import train_test_split
+
+#4630 將所有圖片轉成矩陣
+%%time
+x_train = []
+y_train = []
+count=0
+for path,label in dataset:
+    image = cv2.imread(path) #載入圖片
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) #轉灰階
+    image = cv2.resize(image,(180,192)) #統一圖片尺寸
+    # 3x3局部採樣取平均值 類似池化層 減少數據量 
+    image = block_reduce(image, block_size=(3, 3), func=np.mean) 
+    x_train.append(image)
+    y_train.append(label)
+    count=count+1
+    if count % 500 == 0:
+        print(count,'處理完成..',label)
+#imgplot = plt.imshow(image)
+
+
+#4631 list轉成np矩陣不產生副本
+x_train = np.asarray(x_train) 
+y_train = np.asarray(y_train)
+
+
+x_train.shape
+
+
+np.save('x_train', x_train)
+np.save('y_train', y_train)
+
+
+x_train = np.load('x_train.npy')
+y_train = np.load('y_train.npy')
+
+x_train.shape
+
+
+#4632 標準化成0~1浮點數
+x_train = x_train.astype(np.float32) / 255. #標準化
+y_train = y_train.astype(np.int32)
+print (x_train.dtype, x_train.min(), x_train.max(), x_train.shape)
+print (y_train.dtype, y_train.min(), y_train.max(), y_train.shape)
+
+#4633 資料預處理
+
+from keras.utils import np_utils
+number_of_categories = 2 #分類數
+# 標籤轉 one hot
+y_train = np_utils.to_categorical(y_train, number_of_categories).astype(np.float32)
+
+#隨機打亂順序
+indices = np.arange(len(x_train))
+temp_x = x_train
+temp_y = y_train
+np.random.shuffle(indices)
+x_train = x_train[indices]
+y_train = y_train[indices]
+
+#4634 顯示訓練數據與標籤
+w=10
+h=10
+fig=plt.figure(figsize=(8, 8))
+columns = 4
+rows = 5
+for i in range(1, columns*rows +1):
+    img = x_train[i]
+    fig.add_subplot(rows, columns, i)
+    plt.title(y_train[i])
+    plt.imshow(img)
+plt.show()
+
+#4635 分割測試集
+x_train = np.expand_dims(x_train, axis=-1)
+# 分割20%成為測試集
+(trainX, testX, trainY, testY) = train_test_split(x_train, y_train, test_size=0.20, random_state=1)
+print(trainX.shape)
+
+#4636 建模
+
+from keras.layers import LeakyReLU
+filters = 32
+conv_size = 3 #卷積 3*3
+pool_size = 2 #池化 2*2
+
+model = Sequential()
+model.add(layers.Conv2D(filters,(conv_size,conv_size),LeakyReLU(alpha=0.1),input_shape=trainX.shape[1:]))
+#model.add(layers.Conv2D(filters,(conv_size,conv_size),activation="relu",input_shape=trainX.shape[1:]))
+model.add(layers.MaxPooling2D((pool_size,pool_size)))
+model.add(layers.Conv2D(filters*2,(conv_size,conv_size),activation="relu"))
+model.add(layers.MaxPooling2D((pool_size,pool_size)))
+model.add(layers.Conv2D(filters,(conv_size,conv_size),activation="relu"))
+model.add(layers.MaxPooling2D((pool_size,pool_size)))
+model.add(layers.Flatten())
+model.add(Dense(64, activation='relu'))
+model.add(Dense(number_of_categories, activation='softmax'))
+
+model.summary()
+
+#4637 模型編譯與訓練
+%%time
+model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
+history = model.fit(trainX, trainY, epochs=30)
+
+
+#4638 儲存模型
+model.save('smile_epochs30.h5')
+print("The model has been saved!")
+
+#4639 模型評估
+score = model.evaluate(testX, testY)
+print('Test score:', score[0])
+print('Test accuracy:', score[1])
+
+history.history
+
+#4640 繪製訓練歷程圖表
+history_dict = history.history
+print(history_dict.keys())
+plt.style.use("ggplot")
+plt.figure()
+plt.plot(history.history["loss"], label="train_loss")
+plt.plot(history.history["accuracy"], label="acc")
+plt.title("Training Loss and Accuracy")
+plt.xlabel("Epoch #")
+plt.ylabel("Loss/Accuracy")
+plt.legend()
+plt.show()
+
+
+#顯示圖片 
+from IPython.display import Image
+#圖片路徑
+PATH1 = "/content/drive/My Drive/my_photo/B24EAC70-B3D4-4A51-ADF1-BA730BC8E7B7.jpg"                       
+Image(filename = PATH1 , width=300, height=300)
+
+#顯示圖片 
+from IPython.display import Image
+#圖片路徑
+PATH2 = "/content/drive/My Drive/my_photo/273E6014-046A-4CCB-B2C8-6D2EDA7F235A.jpg"
+Image(filename = PATH2 , width=300, height=300)
+
+#顯示圖片 
+from IPython.display import Image
+
+#圖片路徑
+PATH3 = "/content/drive/My Drive/my_photo/o20200513170148.jpg"                   
+Image(filename = PATH3 , width=300, height=300)
+
+
+#顯示圖片 
+from IPython.display import Image
+
+#圖片路徑
+PATH4 = "/content/drive/My Drive/my_photo/E00187A0-7283-4CA5-BECF-2DBEEEF3A84B.jpg"                        
+Image(filename = PATH4 , width=300, height=300)
+
+#4646 取得Image file路徑list (i.e., ..\\image\\~.jpg)
+from imutils import paths #路徑檔案管理
+test_img = sorted(list(paths.list_images('/content/drive/My Drive/my_photo'))) 
+print(len(test_img))
+test_img # Show all images in the "image" folder.
+
+# Smile prediction, developed by Horace for NCTU class @ 2020/08/25
+def JDG_smile(pid):
+    test_images = []
+    t_image = cv2.imread(test_img[pid]) #2000 1000 
+    t_image = cv2.cvtColor(t_image, cv2.COLOR_BGR2GRAY)
+    t_image = cv2.resize(t_image,(60,64))
+    test_images.append(t_image)
+
+    plt.imshow(t_image)
+    test_images = np.asarray(test_images)
+    test_images = test_images.astype(np.float32) / 255.
+
+    test_images = np.expand_dims(test_images, axis=-1)
+    p = model.predict(np.array([test_images[0]]))[0]
+
+    print(p)
+    class_names = ["W/o Smiling","Unsmiling"] # why "Neutral"
+    bar_width = 50 #刻度寬度
+    left_count = int(p[1] * bar_width) #使用Smiling決定 左邊刻度
+    right_count = bar_width - left_count 
+    left_side = '-' * left_count #顯示左邊長度
+    right_side = '-' * right_count #顯示右邊長度
+    print (class_names[0], left_side + '<|>' + right_side, class_names[1])
+    
+    JDG_smile(0)
+    
+    JDG_smile(1)
+    
+    JDG_smile(2)
+    
+    JDG_smile(3)
+    
+    
+```
