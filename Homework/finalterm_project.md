@@ -30,7 +30,7 @@
 * skimage ----> 用來處理影像
 * keras -----> 深度學習函式庫
 
-### [程式碼](https://github.com/cycyucheng1010/ai109b/blob/main/Homework/%E6%9C%9F%E6%9C%AB%E4%BD%9C%E6%A5%AD.ipynb)
+### [程式碼連結](https://github.com/cycyucheng1010/ai109b/blob/main/Homework/%E6%9C%9F%E6%9C%AB%E4%BD%9C%E6%A5%AD.ipynb)
 ![image](https://user-images.githubusercontent.com/62127656/120694975-623e5200-c4dd-11eb-9469-5ad113a1cc19.png)
 >(圖三) 抓取資料集
 
