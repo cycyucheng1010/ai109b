@@ -23,10 +23,10 @@
 >(圖二) unsmiling
 ### 使用環境
 * Colab ----> google的開發環境，可免費使用內建其GPU長達8hr/day
-* tensorflow ----> 人工智慧套件 
+* tensorflow ----> 人工智慧套件，因在impport keras時已有tensorflow的套件，這邊僅做版本選擇。
 * matplotlib ----> 圖形繪製
 * numpy ----> 數學計算
-* cv2 -----> 基本影像處理
+* cv2 -----> 基本影像處理，用於輸入本人測試照片時使用。
 * skimage ----> 用來處理影像
 * keras -----> 深度學習函式庫
 
