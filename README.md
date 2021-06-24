@@ -32,3 +32,4 @@
 [20210605第十五週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210603%E7%AC%AC%E5%8D%81%E4%BA%94%E9%80%B1%E7%AD%86%E8%A8%98.md) | Colab <br> RNN <br> LSTM <br> One-hot Enconding
 [20210610第十六週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210610%E7%AC%AC%E5%8D%81%E5%85%AD%E9%80%B1%E7%AD%86%E8%A8%98.md) | 機器學習 <br> 蒙地卡羅方法 <br> 馬可夫鏈  <br> 吉布斯採樣  <br> 隱藏式馬可夫模型  <br> 維特比演算法 <br> 最大期望演算法  <br> K-近鄰演算法 <br> 決策樹 <br> 隨機森林 <br> SVM 
 [20210617第十七週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210617%E7%AC%AC%E5%8D%81%E4%B8%83%E9%80%B1%E7%AD%86%E8%A8%98.md) | 詞向量 <br> 開放專案授權 <br> CC授權
+[20210624第十八週](https://github.com/cycyucheng1010/ai109b/blob/main/Note/20210624%E7%AC%AC%E5%8D%81%E5%85%AB%E9%80%B1%E7%AD%86%E8%A8%98.md) | 鍾誠老師上課教材 <br> 台大人工智慧學習連結 <br> 李永樂老師的YT教學 <br> 線上學習資源 <br> 電子書
